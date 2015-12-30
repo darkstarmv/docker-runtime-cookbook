@@ -2,6 +2,7 @@
 
 THis cookbooks sets up docker runtime and deploys some basic containers using docker files from
 https://github.com/CentOS/CentOS-Dockerfiles
+
 Once container is up it registers with Consul using Registrator
 
 ##References
