@@ -25,10 +25,13 @@ end
 
 docker_container 'consul-server' do
   network_mode 'host'
+  privileged true
+  tty true
   restart_policy 'on-failure'
   repo 'gliderlabs/consul-server'
   command ' -bootstrap'
-  action :run_if_missing
+  #action :run_if_missing
+  action :redeploy
 end
 
 docker_image "registrator" do
@@ -42,6 +45,7 @@ docker_container 'registrator' do
   restart_policy 'on-failure'
   volumes '/var/run/docker.sock:/tmp/docker.sock' 
   command ' consul://localhost:8500'
-  action :run_if_missing
+  action :redeploy
+  #action :run_if_missing
 end
 
