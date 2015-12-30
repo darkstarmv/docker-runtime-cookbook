@@ -8,7 +8,7 @@ RUN yum -y update; yum clean all \
 
 #
 # add run/set passwd script
-ADD ./run-rabbitmq-server.sh /
+ADD /run-rabbitmq-server.sh /
 RUN chmod 750 /run-rabbitmq-server.sh
 
 # 
