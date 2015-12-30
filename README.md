@@ -1,6 +1,14 @@
 # docker-runtime-cookbook-cookbook
 
-TODO: Enter the cookbook description here.
+THis cookbooks sets up docker runtime and deploys some basic containers using docker files from
+https://github.com/CentOS/CentOS-Dockerfiles
+Once container is up it registers with Consul using Registrator
+
+##References
+ - (https://github.com/CentOS/CentOS-Dockerfiles)
+ - (https://github.com/chef-cookbooks/docker)
+ - (http://gliderlabs.com/registrator/latest/user/quickstart/)
+
 
 ## Supported Platforms
 
