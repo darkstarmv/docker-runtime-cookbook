@@ -6,27 +6,18 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-
-cookbook_file '/rabbitmq.Dockerfile' do
-  source 'rabbitmq.Dockerfile'
+cookbook_file '/tmp/rabbitmq_image.tar' do
+  source 'rabbitmq_image.tar'
   owner 'root'
   group 'root'
   mode '0755'
   action :create
 end
-
-cookbook_file '/run-rabbitmq-server.sh' do
-  source 'run-rabbitmq-server.sh'
-  owner 'root'
-  group 'root'
-  mode '0755'
-  action :create
-end
-
 
 docker_image 'dark/rabbitmq' do
-  tag 'v0.0.1'
-  source '/rabbitmq.Dockerfile'
+  source '/tmp/rabbitmq_image.tar'
+  nocache true
+  rm true
   action :build_if_missing
 end
 

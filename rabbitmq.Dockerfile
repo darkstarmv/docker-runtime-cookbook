@@ -8,8 +8,8 @@ RUN yum -y update; yum clean all \
 
 #
 # add run/set passwd script
-ADD /run-rabbitmq-server.sh /
-RUN chmod 750 /run-rabbitmq-server.sh
+ADD ./run-rabbitmq-server.sh  /tmp/
+RUN chmod 750 /tmp/run-rabbitmq-server.sh
 
 # 
 # expose some ports
@@ -25,4 +25,4 @@ EXPOSE 5672 15672 4369 25672
 # we will set a random password and add one vhost for development
 ENV DEVEL_VHOST_NAME develop
 
- CMD ["/run-rabbitmq-server.sh"]
+ CMD ["/tmp/run-rabbitmq-server.sh"]
