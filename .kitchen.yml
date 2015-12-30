@@ -1,0 +1,17 @@
+---
+driver:
+  name: vagrant
+  network:
+    - ["private_network", {ip: "192.168.10.33"}]
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: centos-7.1
+
+suites:
+  - name: default
+    run_list:
+      - recipe[docker-runtime::default]
+    attributes:
