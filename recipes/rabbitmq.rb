@@ -23,7 +23,10 @@ end
 
 docker_container 'rabbitmq' do
   network_mode 'host'
+  port '15672:15672'
+  port '5672:5672'
   restart_policy 'on-failure'
   repo 'dark/rabbitmq'
   action :run_if_missing
+  #action :run
 end
