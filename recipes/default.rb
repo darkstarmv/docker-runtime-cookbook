@@ -36,9 +36,12 @@ docker_image "registrator" do
   action :pull
 end
 
-#docker_container 'registrator' do
-#  repo 'gliderlabs/registrator'
-#  command ' consul://localhost:8500'
-#  action :run_if_missing
-#end
+docker_container 'registrator' do
+  repo 'gliderlabs/registrator'
+  network_mode 'host'
+  restart_policy 'on-failure'
+  volumes '/var/run/docker.sock:/tmp/docker.sock' 
+  command ' consul://localhost:8500'
+  action :run_if_missing
+end
 
