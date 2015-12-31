@@ -18,4 +18,6 @@ suites:
     run_list:
       - recipe[docker-runtime::default]
       - recipe[docker-runtime::rabbitmq]
+      - recipe[docker-runtime::memcached]
+      - recipe[docker-runtime::redis]
     attributes:
